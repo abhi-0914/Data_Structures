@@ -154,11 +154,20 @@ void _delete()
                 getch();
                 char ch;
                 scanf("%c",&ch);
-                if (ch == 'y' || ch == 'Y')
+                if(ch=='Y'||ch=='y')
                 {
-                    printf("\n\n Deleting Record With Employee Number :: %d", obj->e_no);
+                    employee *temp=top;
+                    printf("\n\n Deleting Record With Employee Number :: %d",obj->e_no);
+                    printf("\n .... Record Deleted Successfully ");
                     getch();
-                    top = top->link;
+                    while(temp!=NULL)
+                    {
+                        if(temp->link==obj)
+                        {
+                            temp->link=obj->link;
+                        }
+                        temp=temp->link;
+                    }
                     delete obj;
                 }
 
